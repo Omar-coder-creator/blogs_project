@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
     try {
         let blogs = await blog.find();
         if (blogs.length === 0) {
-            res.status(404).json({ message: 'no blogs found' })
+            console.error('no blogs found')
         }
         res.status(200).json(blogs);
     } catch (err) {

@@ -17,7 +17,7 @@ async function addBlog(blog){
 }
 async function editBlog(id,blog){
     const res = await fetch(`/blogs/${id}`,{
-        method:'POST',
+        method:'PUT',
         headers :{
             'Content-Type' : 'application/json'
         },
@@ -27,16 +27,13 @@ async function editBlog(id,blog){
     return data
 }
 async function deleteBlog(id){
-    let res = await fetch('/blogs', {
+    let res = await fetch(`/blogs/${id}`, {
         method : 'DELETE',
     })
     let data = await res.json()
     return data ;
 }
 
-module.exports = {
-    getBlogs ,
-    addBlog,
-    editBlog,
-    deleteBlog
+export {
+    getBlogs,addBlog,editBlog,deleteBlog
 }
